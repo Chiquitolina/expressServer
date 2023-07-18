@@ -14,8 +14,8 @@ client.messages
         from: 'whatsapp:+14155238886',
         to: 'whatsapp:' + numberto
     })
-    .then(message => console.log( message.sid ))
-    .catch(error => {console.log( error )})
+    .then(message => console.log( message.sid )) //se ejecuta si la promesa se resuelve correctamente
+    .catch(error => {console.log( error )}) //manejo de errores en caso de que no
 }
 
 module.exports = enviarMensaje

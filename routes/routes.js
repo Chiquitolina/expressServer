@@ -4,11 +4,10 @@ const enviarMensaje  = require('../utils/twilio.js') //import funcion enviarMens
 
 //CONSTS
 const router = express.Router() //crea instancia del router de express
-const URI = 'http://127.0.0.1:3000' //host del servidor
 
 //ROUTES
 
-//RUTA PRINCIPAL
+//ruta principal
 router.get('/', (req, res) => {
     res.send('Hola')
 })
@@ -19,6 +18,7 @@ router.post('/send', (req, res) => {
 
     //llamamos la funcion importada para enviar el mensaje
     enviarMensaje(tonumber, message)
+    
 })
 
 module.exports = router;
