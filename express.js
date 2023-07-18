@@ -1,24 +1,21 @@
-//IMPORTA LA LIBRERÍA
-const express = require('express')
+//IMPORTS
+const express = require('express') //importa la lib express
+const cors = require('cors') //importa la lib cors
+const routes = require('./routes/routes.js') //importa el módulo de rutas creado en ../routes/routes.js
 
-//IMPORTA EL MÓDULO DE RUTAS
-const routes = require('./routes/routes.js')
+//CONSTS
+const app = express() //crea la instancia de xpress
+const port = 3000; //puerto
 
-//CREA UNA INSTANCIA
-const app = express()
+//CONFIGS
 
-//PUERTO
-const port = 3000;
-
-//CONFIGURA LA DECODIFICACION DE DATOS EN FORMATO JSON
-//Y URL EN LAS SOLICITUDES ENTRANTES
-app.use(express.json())
-app.use(express.urlencoded({ extended: false}))
-
-//CONFIGURACION DEL ROUTER
-app.use('/', routes)
+app.use(cors()) //config del cors
+app.use(express.json()) //config para la decodificiación de jsons en solicitudes entrantes
+app.use(express.urlencoded({ extended: false})) //config para la decod de datos codificados en urls
+app.use('/', routes) //configuracion del router
 
 //LE DAMOS MECHA AL SERVER
+
 app.listen(port, () => {
     console.log("Conectado correctamente al puerto 3000.")
 })
